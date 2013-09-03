@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Display utilities
+   ========================================================================== */
+
+/**
+ * Display utilities with responsive capability
+ *
+ * See original utilities for more info.
+ */
+
+/* Variables
+   ========================================================================== */
+
+/**
+ * Bits.sass utilities namespace
+ */
+
+$bits-utils-ns: 'bits-' !default;
+
+/* Main mixin
+   ========================================================================== */
+
+/**
+ * Mixin encapsulating a version of display utils at a certain breakpoint
+ */
+
+/**
+ * 1. Eg. 'bits-v4-'.
+ */
+
+@mixin bits-display-responsive($breakpoint) {
+  $prefix: unquote("#{$bits-utils-ns}#{$breakpoint}-"); /* 1 */
+
+  .#{$prefix}u-none {
+    display: none !important;
+  }
+
+  .#{$prefix}u-inline {
+    display: inline !important;
+  }
+
+  .#{$prefix}u-inlineBlock {
+    display: inline-block !important;
+  }
+
+  .#{$prefix}u-block {
+    display: block !important;
+  }
+
+  .#{$prefix}u-table {
+    display: table !important;
+  }
+
+  .#{$prefix}u-tableCell {
+    display: table-cell !important;
+  }
+}
+
+/* Complementary mixin
+   ========================================================================== */
+
+/**
+ * This mixin should be included before the main, `bits-display-responsive`
+ * mixin.
+ *
+ * Example HTML:
+ *
+ * // This div is hidden by default and displayed at `v4` breakpoint as block
+ * <div class="v1-u-none v4-u-block">
+ *  …
+ * </div>
+ */
+
+@mixin bits-display-responsive-v1 {
+  $prefix: unquote("#{$bits-utils-ns}v1-");
+
+  .#{$prefix}u-none {
+    display: none !important;
+  }
+}
